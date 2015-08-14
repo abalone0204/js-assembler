@@ -35,7 +35,7 @@ var parseInstructionA = function(instruction) {
     var register = instruction.slice(1, instruction.length);
     var underlyingFields = {
         commandType: A_COMMAND,
-        register: register
+        register: parseInt(register)
     };
     return underlyingFields;
 };
@@ -57,7 +57,7 @@ var parseInstructionC = function(instruction) {
             comp = insD[2];
         }
     } else {
-        dest = instruction.matchWith(';')[1];
+        comp = instruction.matchWith(';')[1];
         jump = instruction.matchWith(';')[2];
     }
 

@@ -26,6 +26,9 @@ var transA = function(underlyingFields) {
 
 var dealDest = function(dest) {
     var result = [0, 0, 0];
+    if (dest === undefined) {
+        return result.join('');
+    };
     if (dest.match(/M/)) {
         result[2] = 1;
     }
@@ -52,7 +55,7 @@ var dealJump = function(jump) {
     if (jump.match(/L/)) {
         result[0] = 1;
     }
-    if (jump.match(/EQ/)) {
+    if (jump.match(/E/)) {
         result[1] = 1;
     }
     if (jump.match(/NE/)) {
@@ -111,7 +114,7 @@ var dealComp = function(comp) {
             return a + '110111';
             break;
         case 'D-1':
-            return a + '011111';
+            return a + '001110';
             break;
         case 'A-1':
         case 'M-1':

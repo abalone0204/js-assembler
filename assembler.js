@@ -34,11 +34,15 @@ if (fileName) {
         .filter((word) => {
             return word.length !== 0;
         })
-        .forEach((instruction) => {
-            // console.log(instruction);
-            var binaryCode = translate(parse(instruction));
+        .map((instruction)=>{
+            return parse(instruction);
+        })
+        .map((underlyingFields)=>{
+            return translate(underlyingFields);
+        })
+        .forEach((binaryCode)=>{
             binaryCode += "\n"
-            fs.appendFileSync(targetFileName, binaryCode);
+            fs.appendFileSync(targetFileName, binaryCode);    
         });
         // console.log(result);
 
