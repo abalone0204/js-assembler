@@ -1,6 +1,6 @@
 {
   "name": "HackAssemblerJS",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "This assembler is for the course nand2tetris project 6 which is implemented in javascript.",
   "main": "assembler.js",
   "scripts": {
