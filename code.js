@@ -156,7 +156,6 @@ var translate = function(underlyingFields) {
         case L_COMMAND:
             break;
         default:
-            throw err;
             break;
     };
 };

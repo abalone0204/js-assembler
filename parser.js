@@ -95,7 +95,6 @@ var parseInstruction = function(instruction) {
             return parseInstructionL(instruction);
             break;
         default:
-            throw err;
             break;
     }
 
