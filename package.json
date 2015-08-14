@@ -1,0 +1,22 @@
+{
+  "name": "HackAssemblerJS",
+  "version": "0.0.1",
+  "description": "This assembler is for the course nand2tetris project 6 which is implemented in javascript.",
+  "main": "assembler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "assembler",
+    "hack",
+    "nand2tetris"
+  ],
+  "author": "Denny Ku",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^1.3.0"
+  },
+  "scripts": {
+    "test" : "mocha test_suite.js"
+  }
+}
