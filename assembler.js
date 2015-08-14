@@ -27,16 +27,20 @@ if (fileName) {
     var result = wordsArray
         .filter((word) => {
             return !(word.match(/^\/\//))
-        }).map((word) => {
+        })
+        .map((word) => {
             return word.replace('\r', '');
-        }).filter((word) => {
+        })
+        .filter((word) => {
             return word.length !== 0;
-        }).forEach((instruction) => {
+        })
+        .forEach((instruction) => {
             // console.log(instruction);
             var binaryCode = translate(parse(instruction));
-            binaryCode+= "\n"
+            binaryCode += "\n"
             fs.appendFileSync(targetFileName, binaryCode);
         });
+        // console.log(result);
 
 }
 

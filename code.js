@@ -65,6 +65,9 @@ var dealJump = function(jump) {
 
 
 var dealComp = function(comp) {
+    if(comp === undefined) {
+        return '0000000';
+    }
     var a = '0';
     if (comp.match(/M/)) {
         a = '1';
@@ -141,6 +144,7 @@ var transC = function(underlyingFields) {
     var destCode = dealDest(underlyingFields.dest);
     var compCode = dealComp(underlyingFields.comp);
     var jumpCode = dealJump(underlyingFields.jump);
+
     return '111' + compCode + destCode + jumpCode;
 };
 // Main function
@@ -158,6 +162,7 @@ var translate = function(underlyingFields) {
         default:
             break;
     };
+
 };
 code.translate = translate;
 
