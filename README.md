@@ -2,7 +2,7 @@
 
 ## Introduction
 
-- This is the project 6 in the course: [nand2tetris](nand2tetris.org).
+- This is the project 6 in the course: [nand2tetris](http://nand2tetris.org).
 
 - It can translate the `HACK` machine language to binary code which can run on the `HACK` computer.
 
