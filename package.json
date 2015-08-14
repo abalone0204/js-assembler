@@ -3,11 +3,19 @@
   "version": "0.0.1",
   "description": "This assembler is for the course nand2tetris project 6 which is implemented in javascript.",
   "main": "assembler.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abalone0204/js-assembler"
+  },
+  "bug": {
+    "url": "https://github.com/abalone0204/js-assembler/issues"
+  },
   "scripts": {
     "test": "mocha test_suite.js"
   },
   "keywords": [
     "assembler",
+    "nodejs",
     "hack",
     "nand2tetris"
   ],
