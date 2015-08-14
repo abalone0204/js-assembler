@@ -12,6 +12,14 @@
 
 ## Usage
 
-- `npm install`: to install the dependency
+- `npm install`: to install the dependency 
 
-- 
+## Testing
+
+- I've written all of the tests with the framework `mocha`. So if you want to make the testing script much better you should isntall mocha first which it's quite simple to do.
+
+- Just type `sudo npm install -g mocha`
+
+- `npm test` : To run all of the test
+
+- All the tesing scripts are in the `test_suite.js`
