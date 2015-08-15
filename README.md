@@ -14,7 +14,7 @@
 
 - `npm install`: to install the dependency
 
-- `npm assembler FILE_NAME` : And you will see the `FILE_NAME.hack` file in the same dir of the source file.
+- `node assembler.js FILE_NAME` : And you will see the `FILE_NAME.hack` file in the same dir of the source file.
 
 ## Testing
 
