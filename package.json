@@ -1,6 +1,6 @@
 {
   "name": "hack_assembler",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This assembler is for the course nand2tetris project 6 which is implemented in javascript.",
   "main": "assembler.js",
   "repository": {
