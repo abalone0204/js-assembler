@@ -24,33 +24,34 @@ describe('HACK machine language\'s assembler(node.js)', function() {
             jump: jump
         };
     };
-    var LFields = function(labelName) {
+    var LFields = function(labelName, lineNumber) {
         return {
             commandType: L_COMMAND,
-            labelName: labelName
+            labelName: labelName,
+            lineNumber: lineNumber
         };
     }
     describe('1. Parser: parse instruction to serparated fields', function() {
         context("A instruction:", function() {
             it('should parse symbol-less A instruction', function() {
-                assert.deepEqual(AFields(2), parse(instructionA));
+                assert.deepEqual(parse(instructionA), AFields(2));
             });
         });
         context("C instruction:", function() {
             it('should parse symbol-less C instruction without jump', function() {
-                assert.deepEqual(CFields('D', 'M+1'), parse(instructionCNoJump));
+                assert.deepEqual(parse(instructionCNoJump), CFields('D', 'M+1'));
             });
             it('should parse symbol-less C instruction with jump', function() {
-                assert.deepEqual(CFields('D', 'M+1', 'JNE'), parse(instructionCJump));
+                assert.deepEqual(parse(instructionCJump), CFields('D', 'M+1', 'JNE'));
             });
             it('should parse symbol-less C instruction with jump', function() {
-                assert.deepEqual(CFields('0', undefined, 'JMP'), parse(instructionJump));
+                assert.deepEqual(parse(instructionJump), CFields(undefined, '0', 'JMP'));
             });
 
         });
         context("Label: ", function() {
             it('should parse L instruction with jump', function() {
-                assert.deepEqual(LFields('hello'), parse(instructionL));
+                assert.deepEqual(parse(instructionL), LFields('hello', 4));
             });
 
         });
