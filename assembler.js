@@ -37,14 +37,14 @@ if (fileName) {
         .map((instruction) => {
             return parse(instruction);
         })
-        .map((underlyingFields) => {
-            return translate(underlyingFields);
-        })
-        .forEach((binaryCode) => {
-            binaryCode += "\n"
-            fs.appendFileSync(targetFileName, binaryCode);
-        });
-    // console.log(result);
+        // .map((underlyingFields) => {
+        //     return translate(underlyingFields);
+        // })
+        // .forEach((binaryCode) => {
+        //     binaryCode += "\n"
+        //     fs.appendFileSync(targetFileName, binaryCode);
+        // });
+    console.log(result);
 
 }
 

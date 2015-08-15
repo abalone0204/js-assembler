@@ -4,6 +4,7 @@ var parser = {};
 var A_COMMAND = "A";
 var C_COMMAND = "C";
 var L_COMMAND = "L";
+var lineNumber = 0;
 
 parser.hello = function() {
     console.log("parser's hello");
@@ -13,11 +14,17 @@ var matchWith = function(sign) {
     var re = "(.*)" + sign + "(.*)";
     return this.match(re);
 };
-String.prototype.matchWith = matchWith;
 
-var removeWhiteSpace = function(instruction) {
-    return instruction.replace(/\s/g, '');
+
+var removeWhiteSpace = function() {
+    return this.replace(/\s/g, '');
 };
+var removeComment = function() {
+    return this.replace(/\/\/.+/, '');
+};
+String.prototype.removeComment = removeComment;
+String.prototype.removeWhiteSpace = removeWhiteSpace;
+String.prototype.matchWith = matchWith;
 var differAorC = function(instruction) {
     var opCode = instruction[0];
     var label = instruction.match(/^\(.+\)$/);
@@ -75,6 +82,7 @@ var parseInstructionL = function(instruction) {
     var labelName = instruction.match(/^\((.+)\)$/)[1];
     var underlyingFields = {
         commandType: L_COMMAND,
+        lineNumber: lineNumber,
         labelName: labelName
     };
     return underlyingFields;
@@ -82,13 +90,17 @@ var parseInstructionL = function(instruction) {
 
 // Main function
 var parseInstruction = function(instruction) {
-    instruction = removeWhiteSpace(instruction);
+    instruction = instruction.
+    removeWhiteSpace().
+    removeComment();
     var commandType = differAorC(instruction);
     switch (commandType) {
         case A_COMMAND:
+            lineNumber += 1;
             return parseInstructionA(instruction);
             break;
         case C_COMMAND:
+            lineNumber += 1;
             return parseInstructionC(instruction);
             break;
         case L_COMMAND:
