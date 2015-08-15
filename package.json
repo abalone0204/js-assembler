@@ -19,7 +19,7 @@
     "hack",
     "nand2tetris"
   ],
-  "author": "Tsung-Jeng Ku",
+  "author": "Tsung-Chen Ku",
   "license": "ISC",
   "dependencies": {
     "assert": "^1.3.0"
