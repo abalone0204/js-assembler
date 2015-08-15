@@ -42,7 +42,7 @@ var parseInstructionA = function(instruction) {
     var register = instruction.slice(1, instruction.length);
     var underlyingFields = {
         commandType: A_COMMAND,
-        register: parseInt(register)
+        register: register
     };
     return underlyingFields;
 };

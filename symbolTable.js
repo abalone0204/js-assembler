@@ -1,4 +1,7 @@
 var symbolTable = {};
+var A_COMMAND = "A";
+var C_COMMAND = "C";
+var L_COMMAND = "L";
 var assign = Object.assign;
 var keysOf = Object.keys;
 Array.prototype.concatAll = function() {
@@ -24,12 +27,12 @@ var preDefineKeys = keysOf(preDefinedSymbols);
 
 var variableSymbols = {};
 var variableKeys = keysOf(variableSymbols);
-var updatVarKeys = function(){
+var updatVarKeys = function() {
     variableKeys = keysOf(variableSymbols);
 };
 var currentAddress = 16;
-var setVariable = (symbol)=>{
-    variableSymbols[symbol.toString()]=currentAddress;
+var setVariable = (symbol) => {
+    variableSymbols[symbol.toString()] = currentAddress;
     updatVarKeys();
     currentAddress += 1;
 };
@@ -45,5 +48,32 @@ var getSymbolVal = (symbol) => {
         return getSymbolVal(symbol);
     }
 };
-symbolTable.getSymbolVal = getSymbolVal;
+
+var saveLabel = (underlyingFields) => {
+    variableSymbols[underlyingFields.labelName] = underlyingFields.lineNumber;
+    updatVarKeys();
+};
+var symbolLesslize = (underlyingFields) => {
+    if (underlyingFields.commandType === C_COMMAND) {
+        return underlyingFields;
+    }
+    if (underlyingFields.commandType === A_COMMAND) {
+        var symbolic = isNaN(parseInt(underlyingFields.register));
+        if (symbolic) {
+            underlyingFields.register = getSymbolVal(underlyingFields.register);
+        } else {
+            underlyingFields.register = parseInt(underlyingFields.register);
+        }
+        return underlyingFields;
+    }
+};
+var getSymbolTable = function() {
+    return {
+        "predefinedSymbols": preDefinedSymbols,
+        "otherSymbols": variableSymbols
+    };
+};
+symbolTable.getSymbolTable = getSymbolTable;
+symbolTable.saveLabel = saveLabel;
+symbolTable.symbolLesslize = symbolLesslize;
 module.exports = symbolTable;

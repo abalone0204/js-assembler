@@ -20,7 +20,7 @@ var addZero = function(address) {
 };
 
 var transA = function(underlyingFields) {
-    var address = underlyingFields.register.toString(2);
+    var address = parseInt(underlyingFields.register).toString(2);
     return addZero(address);
 };
 
