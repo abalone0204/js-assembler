@@ -20,7 +20,7 @@ if (fileName) {
         flags: 'wx'
     }, (err) => {
         if (err) throw err;
-        console.log("Created");
+        console.log("Ole! Ole! Assembled successfully.");
     });
 
     var wordsArray = data.split("\n");
@@ -34,17 +34,17 @@ if (fileName) {
         .filter((word) => {
             return word.length !== 0;
         })
-        .map((instruction)=>{
+        .map((instruction) => {
             return parse(instruction);
         })
-        .map((underlyingFields)=>{
+        .map((underlyingFields) => {
             return translate(underlyingFields);
         })
-        .forEach((binaryCode)=>{
+        .forEach((binaryCode) => {
             binaryCode += "\n"
-            fs.appendFileSync(targetFileName, binaryCode);    
+            fs.appendFileSync(targetFileName, binaryCode);
         });
-        // console.log(result);
+    // console.log(result);
 
 }
 
