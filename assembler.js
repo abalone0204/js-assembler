@@ -61,7 +61,7 @@ if (fileName) {
         fs.appendFileSync(targetFileName, binaryCode);
     });
     // console.log(result);
-    console.log(SymbolTable.getSymbolTable());
+    // console.log(SymbolTable.getSymbolTable());
 }
 
 module.exports = assembler;
